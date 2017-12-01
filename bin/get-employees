@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+require __DIR__ . '../vendor/autoload.php';
+
+$servername = "localhost";
+$username = "test";
+$password = "test";
+$dbname = "test";
+
+$conn = new \mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM Employees";
+$result = $conn->query($sql);
+
+$employees = array()
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $employee = Daniel\Humi\PersonFactory::create('employee', $row);
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();

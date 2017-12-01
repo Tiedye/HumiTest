@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+require __DIR__ . '/../vendor/autoload.php';
+
+$employee = Daniel\Humi\PersonFactory::create('employee', 'Bob', 'Vance');
+var_dump($employee->asJSON());
+var_dump($employee);
+
+$manager = Daniel\Humi\PersonFactory::create('manager', 'Michael', 'Scott');
+var_dump($manager->asJSON());
+var_dump($manager);
+
+$employee2 = Daniel\Humi\PersonFactory::create('employee', 'Jim', 'Halpert');
+Daniel\Humi\PersonFactory::promote($employee2, 'manager');
+var_dump($employee2);
+
+$employee3 = Daniel\Humi\PersonFactory::create('employee', ["firstName" => "Daniel", "lastName" => "Whitney"]);
+var_dump($employee3);

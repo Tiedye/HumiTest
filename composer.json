@@ -1,0 +1,10 @@
+{
+    "name": "daniel/humi",
+    "type": "standard",
+    "autoload": {
+        "psr-4": {
+            "Daniel\\Humi\\": "src/"
+        }
+    },
+    "bin": ["bin/test", "bin/get-employees"]
+}

@@ -5,6 +5,7 @@ class PersonFactory {
     static public function create(string $personType, ...$params)
     {
         if (count($params) == 1 && is_array($params[0])) {
+            // enable people to be loaded from an array (convenient for json and sql loading)
             switch ($personType) {
                 case "employee":
                     $employee = new Employee("a", "a");
